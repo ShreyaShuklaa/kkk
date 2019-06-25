@@ -1,0 +1,17 @@
+declare
+n number(10):=&n;
+c number(10):=length(n);
+i number(10);
+y varchar2(40);
+begin
+loop
+i:=substr(n,1,1);
+n:=substr(n,2);
+select decode(i,0,'ZERO',1,'ONE',2,'TWO',3,'THREE',4,'FOUR',5,'FIVE',6,'SIX',7,'SEVEN',
+8,'EIGHT',9,'NINE')into y FROM DUAL;
+dbms_output.put_line(y);
+exit when c=1;
+c:=c-1;
+end loop;
+end;
+/
