@@ -1,0 +1,44 @@
+create table temp1188
+(amt number(10),
+interest number(10)
+);
+ 
+create table emp1188
+(
+empno number(4),
+ename varchar2(20),
+sal number(8),
+deptno number(2),
+doj date);
+
+insert into emp1188 values(1,'Arun',50000,1,'01-mar-2017');
+insert into emp1188 values(2,'Ali',21000,1,'05-apr-2007');
+insert into emp1188 values(3,'Scott',25000,1,'1-jun-1997');
+insert into emp1188 values(4,'Jack',15000,1,'19-jul-2009');
+insert into emp1188 values(5,'Arun',50000,1,'30-jan-2008');
+
+
+create table dept1188
+(
+deptno number(4),
+dname varchar2(20),
+loc varchar2(30)
+);
+insert into dept1188 values(1,'Accounting','New York');
+insert into dept1188 values(2,'EXp','mumbai');
+insert into dept1188 values(3,'mgkt','Pune');
+update emp1188 set deptno=2 where empno=4;
+
+
+select max(sal) AND min(sal) from emp1188;
+
+select ename from emp1188 where doj='MAR';
+
+select ename,sal,loc,dname from emp1188,dept1188
+where dept1188.deptno=
+(select deptno from dept1188 where loc='New York');
+select ename from emp1188 where ename  like '%e%',%s%','%E%','%S%';
+
+select avg(sal) from emp1188,dept1188  where
+dept1188.deptno=
+(select deptno from dept1188 where dname='Accounting');
